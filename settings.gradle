@@ -1,0 +1,4 @@
+include ':adb-common'
+include ':adb-client'
+include ':app'
+rootProject.name = "adb-debug-demo"

@@ -1,0 +1,34 @@
+
+group 'com.cleanmaster.client'
+version '0.1-SNAPSHOT'
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+        jcenter()
+        google()
+    }
+    dependencies {
+        // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.2'
+
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'java-library'
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'application'
+mainClassName = 'com.cleanmaster.client.Demo'
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.tools.ddms:ddmlib:26.2.1'
+    implementation project(':adb-common')
+    // classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+}
+
+shadowJar {
+    version = 0.3
+}
